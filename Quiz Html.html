@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <style>
+            #next{
+                    float: right;
+                    margin: 10px;
+            }
+            #quiz{
+                  background-color: chocolate;
+                  text-align: center;
+                  margin: 10px;
+                  padding: 10px;
+                  font-size: 32px;
+            }
+            #dpoint{
+                background-color: rgb(0, 238, 255);
+                font-size: 30px;
+                margin: 10px;
+                padding: 10px;
+                text-align: center;
+
+            }
+            #quizq{
+                background-color: dodgerblue;
+                text-align: center;
+                margin: 10px;
+                padding: 10px;
+                font-size: 30px;
+            }
+            .option{
+                font-size: 20px;
+
+            }
+            .option:hover{
+                background-color: gold;
+
+            }
+            button:hover{
+                background-color: darkcyan;
+                font-size: 25px;
+                box-sizing: content-box;
+            }
+            #question{
+                background-color:blueviolet;
+
+            }
+            #point{
+                font-size:40px;
+            }
+            button{
+               font-size: 20px;
+            }
+
+        </style>
+
+        <body>
+           <div id="quiz"><h1>QUIZ</h1></div>
+           <div id="quizq">
+             <p id="question"> question will show here</p>
+            <button class="option1" id="option1" onclick="checkans(this.innerHTML)">option 1</button>
+            <button class="option2" id="option2" onclick="checkans(this.innerHTML)">option 2</button>
+            <button class="option3" id="option3" onclick="checkans(this.innerHTML)">option 3</button>
+            <button class="option4" id="option4" onclick="checkans(this.innerHTML)">option 4</button>
+           </div>
+           <br>
+            <button id="next" onclick="changeque()"> NEXT</button>
+            <br><br><br>
+            <div id="dpoint">
+                <p id="point"> score</p>
+            </div>
+        </body>
+        <script>
+            var ans=0;
+            var qnum= 1;
+            var score=0;
+            window.onload = changeque();
+            function changeque(){
+                if (qnum==1){
+                document.getElementById('question').innerHTML="1. WHAT IS CAPITAL OF INDIA";
+                document.getElementById('option1').innerHTML="MUMBAI";
+                document.getElementById('option2').innerHTML="DELHI";
+                document.getElementById('option3').innerHTML="SAGAR";
+                document.getElementById('option4').innerHTML="BHOPAL";
+                ans="DELHI"  
+                }
+                  if (qnum==2){
+                document.getElementById('question').innerHTML="2. WHAT IS CAPITAL OF MADHYA PRADESH";
+                document.getElementById('option1').innerHTML="INDIA";
+                document.getElementById('option2').innerHTML="INDORE";
+                document.getElementById('option3').innerHTML="AAGRA";
+                document.getElementById('option4').innerHTML="BHOPAL";
+                ans="BHOPAL"  
+                }     
+                document.getElementById('next').style.backgroundColor='green';               
+            }
+            function checkans(guess){
+                if (ans == guess){
+                    alert('RIGHT ANSWER')
+                    score++
+                }
+                else{
+                    alert('WRONG ANSWER')
+                    score --
+                }
+                qnum++;
+                document.getElementById('next').style.backgroundColor='green';
+                document.getElementById('point').innerHTML='score'+score;
+            }
+        </script>
+    </head>
+</html>
